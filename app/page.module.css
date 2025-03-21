@@ -13,20 +13,6 @@
 .container button {
   background-color: var(--button-background);
   color: var(--button-foreground);
-  /* font-size: 1rem; */
   padding: 0.75rem 1.25rem;
-  /* border: 2px solid var(--button-foreground); */
   border-radius: 0.75rem;
-  /* transition: all 300ms ease-in-out; */
 }
-
-/* .container button:hover {
-  cursor: pointer;
-  opacity: 0.85;
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-}
-
-.container button:active {
-  transform: translateY(0);
-} */
