@@ -7,6 +7,8 @@
   --color-night-black: #0a0a0a;
   --color-kelly-green: #83d743;
   --color-pigment-green: #009b32;
+  --color-cool-gray: #979ba9;
+  --color-crayola-orange: #ff732d;
 
   --foreground: var(--color-eerie-black);
   --background: var(--color-anti-flash-white);
@@ -17,6 +19,9 @@
 
   --button-gradient-left: var(--color-platinum);
   --button-gradient-right: var(--color-smoke-white);
+
+  --color-pin-page: var(--color-smoke-white);
+  --button-color-pin: #fff;
 
   --icon-color: var(--color-eerie-black);
 
@@ -32,6 +37,9 @@
 
     --button-gradient-left: var(--color-eerie-black);
     --button-gradient-right: var(--color-night-black);
+
+    --color-pin-page: #252422;
+    --button-color-pin: #403d39;
 
     --icon-color: var(--color-anti-flash-white);
     --border-input-color: var(--color-anti-flash-white);
@@ -114,10 +122,6 @@ input {
   border: 2px solid var(--border-input-color);
   box-shadow: 4px 4px 10px #0a0a0a49 inset;
 }
-/* 
-input::placeholder {
-  color: #d2d2d2;
-} */
 
 @media (prefers-color-scheme: dark) {
   html {
