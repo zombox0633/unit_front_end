@@ -27,8 +27,10 @@ export default function VerifyPhoneNumber() {
       </section>
       <section className={styles.lower_section}>
         <p>
-          โดยกดปุ่ม "ตกลง" เพื่อยอมรับ ข้อกำหนดและเงื่อนไขรวมทั้ง
-          รับทราบนโยบายคุ้มครองข้อมูลส่วนบุคคล
+          โดยกดปุ่ม "ตกลง" เพื่อยอมรับ{" "}
+          <span>
+            ข้อกำหนดและเงื่อนไขรวมทั้ง รับทราบนโยบายคุ้มครองข้อมูลส่วนบุคคล
+          </span>
         </p>
         <button type="submit">
           <div>
