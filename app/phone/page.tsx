@@ -1,11 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import styles from "./phone.module.css"
-import { ArrowBackIcon, ChevronForwardIcon } from "@/icon/icons"
-import BackButton from "@/components/backButton/backButton"
-import { phoneVerificationData } from "@/constraint/phoneVerification"
 import { useRouter } from "next/navigation"
+import styles from "./phone.module.css"
+
+import BackButton from "@/components/backButton/backButton"
+import { ArrowBackIcon, ChevronForwardIcon } from "@/icon/icons"
+import { phoneVerificationData } from "@/constraint/phoneVerification"
+
 
 export default function VerifyPhoneNumber() {
   const router = useRouter()
@@ -13,6 +15,8 @@ export default function VerifyPhoneNumber() {
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [message, setMessage] = useState<string>("")
   const [isSubmit, setIsSubmit] = useState<boolean>(false)
+
+  const successMessage = "หมายเลขโทรศัพท์ของคุณ กำลังไปยังหน้าถัดไป 🎉"
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -45,7 +49,7 @@ export default function VerifyPhoneNumber() {
       return
     }
 
-    setMessage("หมายเลขโทรศัพท์ของคุณ กำลังไปยังหน้าถัดไป 🎉")
+    setMessage(successMessage)
     setTimeout(() => {
       router.push("/pin")
       setMessage("")
@@ -69,6 +73,7 @@ export default function VerifyPhoneNumber() {
             type="tel"
             placeholder="กรุณากรอกหมายเลขโทรศัพท์"
             inputMode="numeric"
+            maxLength={10}
             // pattern="[0-9]{10}"
             value={phoneNumber}
             onChange={handlePhoneChange}
@@ -77,7 +82,7 @@ export default function VerifyPhoneNumber() {
           {message && (
             <p
               className={
-                message === "หมายเลขโทรศัพท์ของคุณ กำลังไปยังหน้าถัดไป 🎉"
+                message === successMessage
                   ? styles.success_message
                   : styles.error_message
               }
