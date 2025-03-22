@@ -47,8 +47,8 @@ export default function VerifyPhoneNumber() {
 
     setMessage("หมายเลขโทรศัพท์ของคุณ กำลังไปยังหน้าถัดไป 🎉")
     setTimeout(() => {
-      setMessage("")
       router.push("/pin")
+      setMessage("")
     }, 1000)
   }
 
