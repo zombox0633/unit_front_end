@@ -21,22 +21,6 @@
   padding: 6rem 0rem 1rem 0rem;
 }
 
-.pin_point__container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  column-gap: 0.5rem;
-  margin: 2rem 0;
-}
-
-.pin_point {
-  background-color: var(--color-cool-gray);
-  width: 1rem;
-  height: 1rem;
-  border-radius: 100%;
-  box-shadow: var(--shadow);
-}
-
 .header_section .icon {
   background-image: linear-gradient(
     to right top,
@@ -53,6 +37,34 @@
   height: 5rem;
   border-radius: 1rem;
   box-shadow: var(--shadow);
+}
+
+.header_section .error_message {
+  color: var(--color-pantone-red);
+}
+
+.header_section .success_message {
+  color: var(--color-kelly-green);
+}
+
+.pin_point__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.pin_point {
+  background-color: var(--color-cool-gray);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  box-shadow: var(--shadow);
+}
+
+.fill_pin {
+  background-color: var(--color-crayola-orange);
 }
 
 .header_section .forget_container {
