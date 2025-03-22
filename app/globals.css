@@ -9,6 +9,7 @@
   --color-pigment-green: #009b32;
   --color-cool-gray: #979ba9;
   --color-crayola-orange: #ff732d;
+  --color-pantone-red:#EF233C;
 
   --foreground: var(--color-eerie-black);
   --background: var(--color-anti-flash-white);
