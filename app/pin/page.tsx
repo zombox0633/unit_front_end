@@ -13,7 +13,7 @@ import {
 } from "@/icon/icons"
 import { phoneVerificationData } from "@/constraint/phoneVerification"
 
-const defaultMessage = "ใส่ PIN เพื่อดำเนินการต่ออีกครั้ง"
+const defaultMessage = "ใส่ PIN เพื่อดำเนินการต่อ"
 
 export default function VerifyPinNumber() {
   const router = useRouter()
@@ -36,11 +36,23 @@ export default function VerifyPinNumber() {
       setTimeout(() => {
         router.push("/sort")
         setPin("")
-        setMessage(defaultMessage)
       }, 1000)
-      
     }
-  }, [pin])
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (/^\d$/.test(event.key) && pin.length < 6) {
+        setPin((prev) => prev + event.key)
+      } else if (event.key === "Backspace") {
+        setPin((prev) => prev.slice(0, -1))
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [pin, router, successMessage, defaultMessage])
 
   const handlePinClick = (value: string) => {
     if (pin.length < 6) {
@@ -58,7 +70,9 @@ export default function VerifyPinNumber() {
         <ChevronBackIcon />
       </BackButton>
       <section className={styles.header_section}>
-        <div className={styles.icon}>😾</div>
+        <div className={styles.icon}>
+          {message === successMessage ? "😸" : "😾"}
+        </div>
         <div>
           <p
             className={
