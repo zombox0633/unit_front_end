@@ -36,8 +36,9 @@ export default function VerifyPinNumber() {
       setTimeout(() => {
         router.push("/sort")
         setPin("")
+        setMessage(defaultMessage)
       }, 1000)
-      setMessage(defaultMessage)
+      
     }
   }, [pin])
 
