@@ -12,6 +12,7 @@ export default function VerifyPhoneNumber() {
 
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [message, setMessage] = useState<string>("")
+  const [isSubmit, setIsSubmit] = useState<boolean>(false)
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -22,14 +23,27 @@ export default function VerifyPhoneNumber() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    if (!phoneNumber) return setMessage("กรุณากรอกหมายเลขโทรศัพท์")
-    else if (phoneNumber.length !== 10)
-      return setMessage("กรุณากรอกหมายเลขโทรศัพท์ให้ครบ 10 หลัก")
+    if (isSubmit) return
+    setIsSubmit(true)
+
+    if (!phoneNumber) {
+      setMessage("กรุณากรอกหมายเลขโทรศัพท์")
+      setIsSubmit(false)
+      return
+    } else if (phoneNumber.length !== 10) {
+      setMessage("กรุณากรอกหมายเลขโทรศัพท์ให้ครบ 10 หลัก")
+      setIsSubmit(false)
+      return
+    }
 
     const checkPhone = phoneVerificationData.some(
       (data) => data.phoneNumber === phoneNumber,
     )
-    if (!checkPhone) return setMessage("หมายเลขโทรศัพท์ของคุณไม่ถูกต้อง")
+    if (!checkPhone) {
+      setMessage("หมายเลขโทรศัพท์ของคุณไม่ถูกต้อง")
+      setIsSubmit(false)
+      return
+    }
 
     setMessage("หมายเลขโทรศัพท์ของคุณ กำลังไปยังหน้าถัดไป 🎉")
     setTimeout(() => {
@@ -80,7 +94,7 @@ export default function VerifyPhoneNumber() {
             ข้อกำหนดและเงื่อนไขรวมทั้ง รับทราบนโยบายคุ้มครองข้อมูลส่วนบุคคล
           </span>
         </p>
-        <button type="submit">
+        <button type="submit" disabled={isSubmit}>
           <div>
             <ChevronForwardIcon />
           </div>
