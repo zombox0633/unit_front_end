@@ -7,7 +7,7 @@ import styles from "./backButton.module.css"
 export default function BackButton({ children }: ChildrenPropsType) {
   const router = useRouter()
   return (
-    <button onClick={() => router.back()} className={styles.back_button}>
+    <button type="button" onClick={() => router.back()} className={styles.back_button}>
       {children}
     </button>
   )

@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import styles from "./sort.module.css"
-
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism"
+import styles from "./sort.module.css"
+
+import BackButton from "@/components/backButton/backButton"
+import { ArrowBackIcon } from "@/icon/icons"
 
 const code = `
   ให้เรียงตัวเลขจากน้อยไปมาก โดยอธิบายเป็นลําดับขั้นตอน
@@ -47,11 +49,16 @@ export default function SortPage() {
   }
   return (
     <div className={styles.container}>
+      <BackButton>
+        <ArrowBackIcon />
+      </BackButton>
       <section className={styles.upper_section}>
         <h2>แบบทดสอบที่ 3</h2>
         <div>
           <p>{num}</p>
-          <button onClick={handleSortData} className={styles.button_sort}>sort</button>
+          <button onClick={handleSortData} className={styles.button_sort}>
+            sort
+          </button>
         </div>
       </section>
       <section className={styles.lower_section}>
